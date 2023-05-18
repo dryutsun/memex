@@ -1,17 +1,94 @@
 ---
 import FAQIndicator from "@components/atoms/FAQIndicator.astro";
+import FAQContainer from "@components/molecules/FAQContainer.astro";
+const summaryClass =
+	"flex cursor-pointer items-center justify-between text-gray-900 group open:first-child";
 ---
 
-<div class="flow-root my-16">
-	<div class="-my-8 divide-y divide-gray-100">
-		<details
-			class="group py-8 [&_summary::-webkit-details-marker]:hidden"
-			open
-		>
-			<summary
-				class="flex cursor-pointer items-center justify-between text-gray-900"
-			>
-				<h2 class="text-2xl font-semibold">What Languages Do I Use?</h2>
+<div class="flow-root my-4 md:my-4 prose w-full max-w-5xl">
+	<div class=" divide-y divide-gray-600 w-full">
+		<FAQContainer>
+			<summary class={summaryClass}>
+				<h2 class="text-2xl font-semibold my-4">Why should you hire me?</h2>
+				<FAQIndicator />
+			</summary>
+
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Good Enough is better than Perfect.</strong>
+				Software Engineering is a practice of finding the right balance of
+				tradeoffs. With every piece of code shipped, I attempt:
+				<ul class="list-disc max-w-xl mx-2 my-2">
+					<li>
+						To establish the <strong>correct context</strong> for the
+						problem by gathering data, examining user behavior, and understanding
+						user needs and goals (which can be myself as well!)
+					</li>
+					<li>
+						To determine the <strong>value of problem</strong> being
+						solved, my proposed solution and to communicate it effectively
+						to all relevant stakeholders.
+					</li>
+					<li>
+						To identify the <strong>correct constraints</strong> (costs,
+						scale, performance, correctness, ramp-up, accuracy, maintainability)
+						of the problem as well as the <strong
+							>associated risks</strong
+						> to develop with my team and business interests in mind.
+					</li>
+					<li>
+						To identify the gaps in my knowledge that slowed down my
+						development velocity and address those gaps.
+					</li>
+					<li>
+						To grasp the bigger picture and accrue familarity with
+						the domains and data for the systems I am developing
+						for.
+					</li>
+					<li>
+						To seek feedback from my team, when appropriate, so I
+						can learn more quickly from people with experience and
+						gain new perspectives on the problem.
+					</li>
+					<li>
+						To seek feedback from my users, so I can understand if
+						we've addressed their problems in a satisfactory manner.
+						To piece together
+					</li>
+				</ul>
+
+				I always aim to have highest-quality code possible within my
+				deadlines.
+			</p>
+			<blockquote class="mt-4 leading-relaxed text-gray-700">
+				<strong>
+					[ understand requirements → prototype → make it work → make
+					it better → ship → iterate ]
+				</strong>
+			</blockquote>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Teamwork and Communication.</strong> I've worked in the non-profit
+				space for many years and have interacted with all types of people
+				and personalities to solve my constituents problems. To do this job
+				well, you have to be an active listener and gain a deep understanding
+				of <strong>user needs and issues</strong>, otherwise you won't
+				be able to solve their problems! As in software engineering,
+				this required adaptability to changing circumstances, learning
+				from others, open and clear communication, as well as a
+				collaborative mindset.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Never Stop Learning, Practicing and Growing.</strong> I'm
+				a self taught developer. I wake up everyday thinking about what I
+				can learn that will enrich my employer's business, my personal skillset
+				and my inner life. I am adaptable, intellectually curious and always
+				engaged in honing my craft. I find great satisfaction in both mentoring
+				and being mentored, but if those opportunities aren't available,
+				I can seek out the right resources and teach myself.
+			</p>
+		</FAQContainer>
+		<FAQContainer>
+			<summary class={summaryClass}>
+				<h2 class="text-2xl font-semibold my-4">What Languages Do I Use?</h2>
 				<FAQIndicator />
 			</summary>
 
@@ -23,13 +100,10 @@ import FAQIndicator from "@components/atoms/FAQIndicator.astro";
 				For more exploratory projects, I've been familiarizing myself
 				with Clojure, OCaml, Eiffel, Verilog.
 			</p>
-		</details>
-
-		<details class="group py-8 [&_summary::-webkit-details-marker]:hidden">
-			<summary
-				class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
-			>
-				<h2 class="text-2xl font-semibold">
+		</FAQContainer>
+		<FAQContainer>
+			<summary class={summaryClass}>
+				<h2 class="text-2xl font-semibold my-4">
 					What Technologies am I using?
 				</h2>
 				<FAQIndicator />
@@ -51,6 +125,97 @@ import FAQIndicator from "@components/atoms/FAQIndicator.astro";
 			<p class="mt-4 leading-relaxed text-gray-700">
 				For <b>NOSQL databases</b>, I utilize MongoDB.
 			</p>
-		</details>
+		</FAQContainer>
+		<FAQContainer>
+			<summary
+				class={summaryClass}
+			>
+				<h2 class="text-2xl font-semibold my-4">
+					What Do I Like About Software Engineering?
+				</h2>
+				<FAQIndicator />
+			</summary>
+
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Composition.</strong> Writing software to me is about logic,
+				abstraction, sequence, decision making and ultimately creativity.
+				Programs are built out even smaller programs, functions or procedures.
+				Choices here can be perilous!
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Abstraction.</strong> These programs are written in a language
+				that is then interpreted or compiled into an even lower-level abstraction
+				like Assembly. Assembly is then assembled into machine code which
+				is interpreted by the hardware!
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Logic & Sequence.</strong> Further below you have instruction
+				decoders, arithmetic logic units and control units circuts composed
+				of logic gates, multiplexers, flipflops, etc allowing for the sequencing
+				of operations, transfer of data/signals between components.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Wonder.</strong> This sequencing is given measure by an electrical
+				current being applied to a crystal, which gives us a stable signal
+				which gives everything in the ladder above order.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Creativity.</strong>
+				Ever consider:
+				<ul>
+					<li>
+						The relationship of circuit design and functional programming?
+					</li>
+					<li>
+						The choices led the intermediary WebAssembly Text
+						Format to use S-expressions?
+					</li>
+					<li>
+						How the phenomenal world is layered with signals without
+						representations and encodings?
+					</li>
+				</ul>
+			</p>
+		</FAQContainer>
+		<FAQContainer>
+			<summary class={summaryClass}>
+				<h2 class="text-2xl font-semibold my-4">
+					What Do I Do For Fun?
+				</h2>
+				<FAQIndicator />
+			</summary>
+
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Climbing.</strong> Planning your beta on a problem scratches a lot of the same itches as
+				programming. It requires percision, iterative problem solving, corrective measures and a healthy
+				appetite for failure. Who knew exercise could be so fun (and painful!)
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Programming.</strong> A good portion of my time goes into understanding where software
+				engineering has been and where it is going. 
+				I like reading & reading about:
+				<ul>
+					<li> Programming Language Theory & Philosophy</li>
+					<li> Data Structures and Algorithms </li>
+					<li> Operating Systems, Containers, Unikernels</li>
+					<li> Source Code</li>
+					<li> "Design Patterns" </li>
+					<li> Embedded Systems & Electronics</li>
+					<li> Digital Signal Processing & Control Theory</li>
+					<li></li>
+				</ul>
+				
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Learning.</strong> We learn by doing and studying ourself doing.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Walking.</strong> There is nothing that will empty the mind like a directionless walk to
+				nowhere.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				<strong>Friends.</strong>
+			</p>
+		</FAQContainer>
 	</div>
 </div>

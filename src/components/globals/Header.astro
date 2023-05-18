@@ -5,15 +5,15 @@ import { NAVBAR_ITEMS } from "@config/config";
 import SiteIcon from "./SiteIcon.astro";
 ---
 
-<header class="border-b-2 border-b-black pb-3">
-	<div class="mx-auto flex w-2xl md:w-5xl flex-col max-w-5xl">
+<header class="border-b-2 border-b-black pb-3 w-3xl max-w-5xl">
+	<div class="mx-auto flex w-3xl md:w-5xl flex-col max-w-5xl">
 		<SiteIcon />
 		<nav
 			aria-label="Site Navigation"
 			class="flex-row w-3xl md:w-5xl max-w-5l py-2 px-4"
 		>
 			<ul
-				class="flex items-center gap-4 text-xs font-medium md:text-sm text-black-500"
+				class="flex flex-wrap items-center md:flex-nowrap gap-4 text-xs font-medium md:text-sm text-black-500"
 			>
 				{
 					Object.keys(NAVBAR_ITEMS).map((item) => (

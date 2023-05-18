@@ -5,6 +5,7 @@
   "scripts": {
 	"dither": "dither ../public/source_images/ ../public/dest_images/",
     "dev": "astro dev",
+	"dev-expose": "astro dev --port 8080 --host 192.168.50.68",
     "dev-theme": "THEME_KEY=deathstranding npm run dev",
     "start": "astro dev",
     "build": "astro build",

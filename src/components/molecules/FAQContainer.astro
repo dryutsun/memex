@@ -1,0 +1,10 @@
+---
+import FAQIndicator from "@components/atoms/FAQIndicator.astro";
+
+const detailsClass =
+	"group py-4 [&_summary::-webkit-details-marker]:hidden w-full ";
+---
+
+<details class={detailsClass}>
+	<slot />
+</details>

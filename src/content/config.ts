@@ -1,4 +1,6 @@
+
 import { z, defineCollection } from 'astro:content';
+
 const blogCollection = defineCollection({
 	schema: z.object({
 		draft: z.boolean().default(false),
@@ -11,8 +13,7 @@ const blogCollection = defineCollection({
 			image: z.string().url().optional(),
 			title: z.string(),
 			description: z.string(),
-		})
-		.strict(),
+		}).strict(),
 	}),
 });
 
@@ -30,7 +31,20 @@ const projectCollection = defineCollection({
 	}).strict()
 });
 
+const bookmarkCollection = defineCollection({
+	schema: z.object({
+		draft: z.boolean().default(false),
+		date: z.date().transform((str) => new Date(str)),
+		bookmark_url: z.string().url().optional(),
+		title: z.string(),
+		tags: z.array(z.string()).optional(),
+		description: z.string().optional()
+	}).strict()
+});
+
 export const collections = {
 	'blog': blogCollection,
 	'projects': projectCollection,
+	'bookmark': bookmarkCollection,
 }
+

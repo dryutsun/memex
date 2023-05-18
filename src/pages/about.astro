@@ -1,19 +1,20 @@
 ---
 import DefaultLayout from "@layouts/default.astro";
-import { CollectionEntry, getCollection } from 'astro:content';
+import { CollectionEntry, getCollection } from "astro:content";
 import { SITE } from "@config/config";
+import FAQMenu from "@components/organisms/FAQMenu.astro";
 
 export interface Props {
-	post: CollectionEntry<'blog'>;
+	post: CollectionEntry<"blog">;
 }
 
-const posts = await getCollection('blog', (post) => {
-	return import.meta.env.MODE !== 'production' || post.data.draft === false;
+const posts = await getCollection("blog", (post) => {
+	return import.meta.env.MODE !== "production" || post.data.draft === false;
 });
 
-const {title, description, ...rest} = SITE;
+const { title, description, ...rest } = SITE;
 ---
 
-<DefaultLayout content={{title, description}} showPageHeader={false}>
-	<p>Hi From About</p>
+<DefaultLayout content={{ title, description }} showPageHeader={false}>
+	<FAQMenu />
 </DefaultLayout>

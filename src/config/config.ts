@@ -13,7 +13,7 @@ export const NAVBAR_ITEMS: NavItems = {
 		title: 'blog'
 	},
 	bookmarks: {
-		path: "/bookmarks",
+		path: "/bookmark",
 		title: 'bookmarks',
 	},
 	tags: {

@@ -2,19 +2,19 @@
 import type { CollectionEntry } from "astro:content";
 import DefaultLayout from "@layouts/default.astro";
 export interface Props {
-	post: CollectionEntry<"blog">;
+	bookmark: CollectionEntry<"bookmark">;
 }
 import { SITE } from "@config/config";
 const { title, description } = SITE;
-const { post } = Astro.props;
+const { bookmark } = Astro.props;
 const { Content } = await post.render();
 ---
 <DefaultLayout content={{ title, description }} showPageHeader={false}>
 	<main class="font-sans prose mt-8 max-w-3xl text-left">
 		<article class="">
 			<div class="pb-4 border-b-2 border-b-gray-200 mb-4 mx-auto w-full max-w-3xl">
-				<h1 class="text-5xl mb-2 font-sans font-black">{post.data.title}</h1>
-				<h3 class="my-2 text-sm font-icon">{post.data.date}</h3>
+				<h1 class="text-5xl mb-2 font-sans font-black">{bookmark.data.title}</h1>
+				<h3 class="my-2 text-sm font-icon">{bookmark.data.date}</h3>
 			</div>
 			<Content />
 		</article>

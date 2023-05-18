@@ -1,0 +1,38 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+import { getCollection, CollectionEntry } from "astro:content";
+import { SITE } from "@config/config";
+import BookMarkContainer from "@components/molecules/BookMarkContainer.astro";
+export interface Props {
+	link: CollectionEntry<"bookmark">;
+}
+
+export async function getStaticPaths() {
+	const links = await getCollection("bookmark");
+	return links.filter(
+		(link) =>
+			import.meta.env.MODE !== "production" || link.data.draft === false
+	);
+}
+
+const links = await getStaticPaths();
+const { title, description, ...rest } = SITE;
+---
+
+<DefaultLayout content={{ title, description }} showPageHeader={false}>
+	<main class="bg-theme-notepad pt-3">
+		<ul class="bg-theme-notepad">
+			{
+				links.map((bookmark) => (
+					<BookMarkContainer
+						title={bookmark.data.title}
+						date={bookmark.data.date}
+						bookmark_url={bookmark.data.bookmark_url}
+						tags={bookmark.data.tags}
+						description={bookmark.data.description}
+					/>
+				))
+			}
+		</ul>
+	</main>
+</DefaultLayout>

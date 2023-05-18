@@ -8,21 +8,30 @@ const { title, description, ...rest } = SITE;
 
 <DefaultLayout content={{ title, description }} showPageHeader={false}>
 	<main>
-		<section class="border-b-2 border-b-black pb-6">
-			<p id="about-text" class="mt-8">Hi! I'm Goro!</p>
+		<section class="prose border-b-2 border-b-black pb-6 max-w-5xl">
+			<h1 id="about-text" class="mt-8">Hi! I'm Goro!</h2>
 			<p id="about-text">
-				I'm a software engineer based in New York City.
+				I'm a full-stack software engineer based in New York City. If you'd like to learn more about my
+				technical qualifications, please check out my about page.
 			</p>
 			<p id="about-text">
-				I am currently interested in data-flow programming, reactive
-				systems and smart multi-device orchestration systems (ala
-				NodeRED).
+				Current Interests:
+				<ul class="list-disc max-w-xl mx-2 my-2">
+					<li>Data-flow programming</li>
+					<li>Reactive Systems</li>
+					<li>Multi-device orchestration systems (NodeRED)</li>
+					<li>Human Computer Interaction & Interfaces</li>
+				</ul>
+			</p>
+			<p id="about-text" class="italic">
+				Please stay a while and check out some of the other pages!
 			</p>
 			<p id="about-text">
 				Eventually, I'd like this page to develop this website as part
 				of a larger Personal Knowledge Repository.
+
+				[Notes] section coming soon.
 			</p>
 		</section>
-		<FAQMenu />
 	</main>
 </DefaultLayout>
