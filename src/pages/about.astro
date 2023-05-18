@@ -1,0 +1,19 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+import { CollectionEntry, getCollection } from 'astro:content';
+import { SITE } from "@config/config";
+
+export interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const posts = await getCollection('blog', (post) => {
+	return import.meta.env.MODE !== 'production' || post.data.draft === false;
+});
+
+const {title, description, ...rest} = SITE;
+---
+
+<DefaultLayout content={{title, description}} showPageHeader={false}>
+	<p>Hi From About</p>
+</DefaultLayout>

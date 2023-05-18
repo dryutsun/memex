@@ -1,0 +1,28 @@
+---
+import DefaultLayout from "../layouts/default.astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import { SITE } from "@config/config";
+import FAQMenu from "@components/organisms/FAQMenu.astro";
+const { title, description, ...rest } = SITE;
+---
+
+<DefaultLayout content={{ title, description }} showPageHeader={false}>
+	<main>
+		<section class="border-b-2 border-b-black pb-6">
+			<p id="about-text" class="mt-8">Hi! I'm Goro!</p>
+			<p id="about-text">
+				I'm a software engineer based in New York City.
+			</p>
+			<p id="about-text">
+				I am currently interested in data-flow programming, reactive
+				systems and smart multi-device orchestration systems (ala
+				NodeRED).
+			</p>
+			<p id="about-text">
+				Eventually, I'd like this page to develop this website as part
+				of a larger Personal Knowledge Repository.
+			</p>
+		</section>
+		<FAQMenu />
+	</main>
+</DefaultLayout>

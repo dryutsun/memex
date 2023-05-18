@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+const { href, title, class:className, path, ...props} = Astro.props;
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+---
+
+<li class="inline-flex items-center gap-2 rounded-lg py-2">
+	<a 
+		class:list={[
+			`pb-1 pl-0 border-b-2 justify-self-start hover:border-black relative block p-4`,
+			pathname !== path ? `border-grey-100` : ``,
+			pathname === path ? ``: ``
+		]} 
+		href={href} 
+		title={title}>
+		<p class="font-sans justify-self-center" id="navlink">
+			{title}
+		</p>
+	</a>
+</li>
+

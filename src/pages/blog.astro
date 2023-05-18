@@ -1,0 +1,34 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+import { CollectionEntry, getCollection } from 'astro:content';
+import { SITE } from "@config/config";
+import PostContainer from "@components/molecules/PostContainer.astro"
+export interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts
+		.filter(post => import.meta.env.MODE !== 'production' || post.data.draft === false)
+}
+ 
+const posts = await getStaticPaths();
+const {title, description, ...rest} = SITE;
+---
+
+<DefaultLayout content={{title, description}} showPageHeader={false}>
+	<main class="bg-theme-notepad">
+		<ul class="bg-theme-notepad">
+		{
+			posts.map((post) =>  (
+				<PostContainer
+					href={`/blog/${post.slug}/`}
+					thumbnail={post.data.thumbnail}
+					title={post.data.title} 
+					date={post.data.date} 
+					description={post.data.share.description} />
+			))
+		}
+</DefaultLayout>
+

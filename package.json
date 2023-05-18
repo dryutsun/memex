@@ -1,0 +1,32 @@
+{
+  "name": "afraid-apogee",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+	"dither": "dither ../public/source_images/ ../public/dest_images/",
+    "dev": "astro dev",
+    "dev-theme": "THEME_KEY=deathstranding npm run dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "retype": "npx astro sync",
+    "check": "astro check && tsc --noEmit && astro build",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^3.1.2",
+    "@astrojs/vercel": "^3.3.0",
+    "astro": "^2.4.5",
+    "astro-compress": "^1.1.42",
+    "astro-imagetools": "^0.8.1",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.0.4",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.14"
+  }
+}

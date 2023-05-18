@@ -1,0 +1,17 @@
+---
+import toLocale from "@utils/toLocaleString"
+const {date, title, description, thumbnail, href,} = Astro.props;
+const formattedDate = toLocale(date);
+---
+
+<div class="flex flex-col items-start  py-2 rounded-lg md:flex-row md:max-w-5xl bg-theme-notepad">
+    <img class="object-cover w-full h-full rounded-lg h-96 md:h-auto md:w-48  md:rounded-l-lg"
+	src={thumbnail} alt="">
+    <div class="flex flex-col justify-between p-4 leading-normal md:max-w-5xl bg-theme-notepad">
+		<a href={href}> 
+			<h5 class="mb-2 text-3xl font-sans font-bold tracking-tight">{title}</h5>
+		</a>
+        <p class="mb-3 font-sans text-sm text-gray-700 dark:text-gray-400">{formattedDate}</p>
+        <p class="mb-3 font-sans text-black">{description}</p>
+    </div>
+</div>

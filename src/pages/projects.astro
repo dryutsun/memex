@@ -1,0 +1,41 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import { SITE } from "@config/config";
+import ProjectContainer from "@components/molecules/ProjectContainer.astro";
+export interface Props {
+	post: CollectionEntry<"projects">;
+}
+
+export async function getStaticPaths() {
+	const projects = await getCollection("projects");
+	return projects.filter(
+		(post) =>
+			import.meta.env.MODE !== "production" || post.data.draft === false
+	);
+}
+const projects = await getStaticPaths();
+
+const { title, description, ...rest } = SITE;
+---
+
+<DefaultLayout content={{ title, description }} showPageHeader={false}>
+	<main class="bg-theme-notepad pt-3">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+			{
+				projects.map((project) => (
+					<ProjectContainer
+						href={`/blog/${project.slug}/`}
+						thumbnail={project.data.thumbnail}
+						project_name={project.data.project_name}
+						gh_url={project.data.gh_url}
+						deploy_url={project.data.deploy_url}
+						date={project.data.date}
+						description={project.data.description}
+						stack={project.data.stack}
+					/>
+				))
+			}
+		</div>
+	</main>
+</DefaultLayout>

@@ -1,0 +1,43 @@
+{
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		],
+		"baseUrl": "./src",
+		"paths": {
+			"@components/*": [
+				"components/*"
+			],
+			"@atoms/*": [
+				"components/atoms/*"
+			],
+			"@molecules/*": [
+				"components/molecules/*"
+			],
+			"@organisms/*": [
+				"components/organisms/*"
+			],
+			"@templates/*": [
+				"components/templates/*"
+			],
+			"@custom_types/*": [
+				"types/*"
+			],
+			"@config/*": [
+				"config/*"
+			],
+			"@utils/*": [
+				"utils/*"
+			],
+			"@layouts/*": [
+				"layouts/*"
+			],
+			"@styles/*": [
+				"styles/*"
+			],
+		}
+	}
+}

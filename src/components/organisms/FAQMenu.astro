@@ -1,0 +1,56 @@
+---
+import FAQIndicator from "@components/atoms/FAQIndicator.astro";
+---
+
+<div class="flow-root my-16">
+	<div class="-my-8 divide-y divide-gray-100">
+		<details
+			class="group py-8 [&_summary::-webkit-details-marker]:hidden"
+			open
+		>
+			<summary
+				class="flex cursor-pointer items-center justify-between text-gray-900"
+			>
+				<h2 class="text-2xl font-semibold">What Languages Do I Use?</h2>
+				<FAQIndicator />
+			</summary>
+
+			<p class="mt-4 leading-relaxed text-gray-700">
+				I am currently programming in JavaScript/TS, Python, Java, Go,
+				C, Rust and Racket. I write in Ruby too!
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				For more exploratory projects, I've been familiarizing myself
+				with Clojure, OCaml, Eiffel, Verilog.
+			</p>
+		</details>
+
+		<details class="group py-8 [&_summary::-webkit-details-marker]:hidden">
+			<summary
+				class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+			>
+				<h2 class="text-2xl font-semibold">
+					What Technologies am I using?
+				</h2>
+				<FAQIndicator />
+			</summary>
+
+			<p class="mt-4 leading-relaxed text-gray-700">
+				For <b>frontends</b>, I utilizing the React Ecosystem, as well
+				as vue and astro. I am looking forward to platform agnostic
+				webcomponents.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				For <b>backends</b>, I usually sketch things out in
+				Node/Express, Django or Spring Boot.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				For <b>SQL databases</b>, I utilize PostgresSQL, but will use
+				sqlite for smaller toy projects.
+			</p>
+			<p class="mt-4 leading-relaxed text-gray-700">
+				For <b>NOSQL databases</b>, I utilize MongoDB.
+			</p>
+		</details>
+	</div>
+</div>

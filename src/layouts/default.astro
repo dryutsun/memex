@@ -1,0 +1,29 @@
+---
+import BaseHead from "@components/globals/BaseHead.astro";
+import Footer from "@components/globals/Footer.astro";
+import Header from "@components/globals/Header.astro";
+import FAQMenu from "@components/organisms/FAQMenu.astro";
+import { SITE } from "@config/config";
+export interface Props {
+	content: object;
+	showPageHeader: boolean;
+}
+---
+
+<!DOCTYPE html>
+<html lang="en" class="container-lg bg-theme-notepad">
+	<head>
+		<BaseHead
+			title={SITE.title}
+			description={SITE.description}
+			image={SITE.image}
+			permalink={SITE.url}
+		/>
+	</head>
+	<body class="mx-auto w-full h-full max-w-5xl px-4 pb-12 bg-">
+		<Header />
+		<slot />
+		<!-- will need to use slot here -->
+		<Footer />
+	</body>
+</html>
