@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from "astro:content";
+import DefaultLayout from "@layouts/default.astro";
+export interface Props {
+	project: CollectionEntry<"projects">;
+}
+import { SITE } from "@config/config";
+const { title, description } = SITE;
+const {  project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<!--
+
+						href={`/blog/${project.slug}/`}
+						thumbnail={project.data.thumbnail}
+						project_name={project.data.project_name}
+						gh_url={project.data.gh_url}
+						deploy_url={project.data.deploy_url}
+						date={project.data.date}
+						description={project.data.description}
+						stack={project.data.stack}
+-->
+<DefaultLayout content={{ title, description }} showPageHeader={false}>
+	<main class="font-sans prose mt-8 max-w-3xl text-left">
+		<article class="">
+			<div
+				class="pb-4 border-b-2 border-b-gray-200 mb-4 mx-auto w-full max-w-3xl"
+			>
+				<h1 class="text-5xl mb-2 font-sans font-black">
+					{project.data.project_name}
+				</h1>
+				<h3 class="my-2 text-sm font-sans font-medium">{project.data.date}</h3>
+				<div class="py-2">
+					<a
+						href={project.data.gh_url}
+						class="text-white bg-gray-800 hover:bg-black focus:ring-4 focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+						>Github</a
+					>
+					<a
+						href={project.data.deploy_url}
+						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+						>Deploy</a
+					>
+				</div>
+			</div>
+			<Content class="prose"/>
+		</article>
+	</main>
+</DefaultLayout>
+
